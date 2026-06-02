@@ -83,7 +83,7 @@ class HomeController extends Controller
         $txtNav8 = request("txtNav8");
         DB::UPDATE("UPDATE tblmenubar SET name= '".$txtName."', nav1='".$txtNav1."', nav2='".$txtNav2."', nav3='".$txtNav3."', nav4='".$txtNav4."', nav5='".$txtNav5."', nav6='".$txtNav6."', nav7='".$txtNav7."', nav8='".$txtNav8."'
                     ,logo='".$fileName."' WHERE navid=".$id.";");
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 
     public function editSlider(HomeModel $homeModel,$id)
@@ -111,7 +111,7 @@ class HomeController extends Controller
         $txtBtn= request("txtBtn");
         DB::UPDATE("UPDATE tblmenubar SET whiteTitle= '".$txtWhite."', blueTitle='".$txtBlue."', description='".$txtDesc."', btnTitle='".$txtBtn."'
                     ,sliderImage='".$fileName."' WHERE navid=".$id.";");
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 
 
@@ -140,7 +140,7 @@ class HomeController extends Controller
         $txtBtn= request("txtBtn2");
         DB::UPDATE("UPDATE tblmenubar SET whiteTitle2= '".$txtWhite."', blueTitle2='".$txtBlue."', description2='".$txtDesc."', btnTitle2='".$txtBtn."'
                     ,sliderImage2='".$fileName."' WHERE navid=".$id.";");
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 
     public function editSlider3(HomeModel $homeModel,$id)
@@ -168,7 +168,7 @@ class HomeController extends Controller
         $txtBtn= request("txtBtn3");
         DB::UPDATE("UPDATE tblmenubar SET whiteTitle3= '".$txtWhite."', blueTitle3='".$txtBlue."', description3='".$txtDesc."', btnTitle3='".$txtBtn."'
                     ,sliderImage3='".$fileName."' WHERE navid=".$id.";");
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 
     /**

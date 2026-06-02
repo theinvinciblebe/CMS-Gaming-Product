@@ -80,14 +80,16 @@ session_destroy();
                                            rounded-pill border-0 shadow-sm px-4 text-primary"
                                     >
                                 </div>
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
-                                >
-                                    Log in
-                                </button>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Log in</button>
                             </form>
                         </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <ul class="list-disc ml-6 text-sm text-gray-600">
+                            <li><strong>Username:</strong> admin</li>
+                            <li><strong>Password:</strong> 123456</li>
+                        </ul>
                     </div>
                 </div><!-- End -->
 

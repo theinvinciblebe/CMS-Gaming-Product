@@ -15,6 +15,9 @@ Route::middleware('auth')->group(function () {
     //protect rout block
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboards');
 
+    //profile-user
+    Route::get('/user-profile', [UserController::class, 'profile'])->name('user.profile');
+
     Route::get('/menubar-edit/{id}',[HomeController::class,'edit']);
     Route::post('/menubar-edit/{id}', [HomeController::class, 'update']);
 
@@ -32,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/user-management/store', [UserController::class, 'store'])->name('user.store');
     Route::put('/user-management/update', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user-management/delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
+
+
 });
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');

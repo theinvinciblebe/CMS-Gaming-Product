@@ -79,6 +79,114 @@
             }
         });
     });
+
+    // Handle Add button click
+    $(document).on('click', '.add-btn', function (e) {
+        e.preventDefault();
+        let form = $(this).closest("form");
+        Swal.fire({
+            title: "Add New data",
+            text: "Are you sure you want to add a new data?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add it!",
+            inputValidator: (value) => {
+                // Validate the input
+                if (!value) {
+                    return "You need to enter something!";
+                }
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: form.attr("action"),
+                    method: form.attr("method"),
+                    data: form.serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            title: "Success",
+                            text: "Data added successfully!",
+                            icon: "success",
+                            confirmButtonColor: "#3085d6",
+                        }).then(() => {
+                            // Redirect or reload the page
+                            window.history.back(); // Go back to the previous page
+                            setTimeout(() => {
+                                window.location.reload(); // Reload after going back
+                            }, 500); // Add a delay to allow navigation before reloading
+
+                        });
+                    },
+                    error: function(error) {
+                        Swal.fire({
+                            title: "Error",
+                            text: "An error occurred while adding the data.",
+                            icon: "error",
+                            confirmButtonColor: "#3085d6",
+                        });
+                    }
+                });
+                // Redirect to the add page or perform the add action
+                //window.location.href = "/add-item"; // Replace with your actual URL
+            }
+        });
+    });
+
+    // Handle logout button click
+    $(document).on('click', '.logout-btn', function (e) {
+        e.preventDefault(); // Prevent default navigation
+        let logoutUrl = $(this).attr('href'); // Get the logout route from href
+
+        Swal.fire({
+            title: "Are you sure you want to log out?",
+            text: "You will need to log in again to access your account.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, log out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = logoutUrl; // Redirect to logout route
+            }
+        });
+    });
+
+</script>
+
+<!-- Overlay script -->
+<script>
+    function showOverlay() {
+        let overlay = document.getElementById("div");
+
+        // Check if the element exists, if not, create it
+        if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.id = "div";
+            document.body.appendChild(overlay);
+        }
+
+        overlay.className = "overlay";
+        overlay.innerHTML = `
+        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        <div class="text-bold pt-2">Loading...</div>
+    `;
+        document.body.appendChild(overlay);
+    }
+
+    // Listen for the "pageshow" event to handle back/forward navigation
+    window.addEventListener('pageshow', (event) => {
+        // Check if the page is being restored from the cache
+        if (event.persisted) {
+            // Remove the overlay if it exists
+            const overlay = document.querySelector('.overlay');
+            if (overlay) {
+                document.body.removeChild(overlay);
+            }
+        }
+    });
 </script>
 
 <!-- Overlay script -->
@@ -104,6 +212,7 @@
             }
         }
     });
+
 
     // function showOverlay() {
     //     document.getElementById('systemOverlay').style.display = 'flex';

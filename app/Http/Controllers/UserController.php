@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use DB;
 use App\Models\User;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
@@ -21,6 +23,17 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function profile()
+    {
+        $user = auth()->user(); // Get the logged-in user's information
+
+        $additionalData = DB::table('users')
+            ->where('id', $user->id)
+            ->first(); // Fetch the teacher's data
+
+        return view('user.profile', compact('user', 'additionalData')); // Pass user and additional data to the view
+    }
     public function create()
     {
         //

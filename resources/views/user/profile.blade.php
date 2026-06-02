@@ -115,50 +115,50 @@
     </div>
 
 
-<!-- Edit Profile Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form id="edit-profile-form" method="POST" action="{{ route('user_profile.update') }}">
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="id" id="edit-user-id">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="edit-user-name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="edit-user-name" name="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-user-email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="edit-user-email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="user-role" class="form-label">Role</label>
-                        <p class="form-control" id="user-role">
-                            @if($user->role == 0) Admin
-                            @elseif($user->role == 1) Teacher
-                            @elseif($user->role == 2) Student
-                            @endif
-                        </p>
-                    </div>
+{{--<!-- Edit Profile Modal -->--}}
+{{--<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">--}}
+{{--    <div class="modal-dialog">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-header">--}}
+{{--                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>--}}
+{{--                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>--}}
+{{--            </div>--}}
+{{--            <form id="edit-profile-form" method="POST" action="{{ route('user_profile.update') }}">--}}
+{{--                @csrf--}}
+{{--                @method('PUT')--}}
+{{--                <input type="hidden" name="id" id="edit-user-id">--}}
+{{--                <div class="modal-body">--}}
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="edit-user-name" class="form-label">Name</label>--}}
+{{--                        <input type="text" class="form-control" id="edit-user-name" name="name" required>--}}
+{{--                    </div>--}}
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="edit-user-email" class="form-label">Email</label>--}}
+{{--                        <input type="email" class="form-control" id="edit-user-email" name="email" required>--}}
+{{--                    </div>--}}
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="user-role" class="form-label">Role</label>--}}
+{{--                        <p class="form-control" id="user-role">--}}
+{{--                            @if($user->role == 0) Admin--}}
+{{--                            @elseif($user->role == 1) Teacher--}}
+{{--                            @elseif($user->role == 2) Student--}}
+{{--                            @endif--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
 
-                    <div class="mb-3">
-                        <label for="edit-user-password" class="form-label">Password (Leave empty to keep unchanged)</label>
-                        <input type="password" class="form-control" id="edit-user-password" name="password">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+{{--                    <div class="mb-3">--}}
+{{--                        <label for="edit-user-password" class="form-label">Password (Leave empty to keep unchanged)</label>--}}
+{{--                        <input type="password" class="form-control" id="edit-user-password" name="password">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>--}}
+{{--                    <button type="submit" class="btn btn-primary">Save Changes</button>--}}
+{{--                </div>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
     <script>

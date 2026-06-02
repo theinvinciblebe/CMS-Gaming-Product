@@ -167,9 +167,13 @@
         <div class="image">
           <img src="/assets/images/thea007.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-          <a href="https://web.facebook.com/profile.php?id=100046605716987" class="d-block">THENG SOTHEA</a>
-        </div>
+          <div class="info">
+              <a href="{{ route('user.profile') }}" class="d-block">
+                  @if (Auth::check())
+                      <p>Welcome, {{ Auth::user()->name }}!</p>
+                  @endif
+              </a>
+          </div>
       </div>
 
       <!-- SidebarSearch Form -->
@@ -208,6 +212,15 @@
               </p>
             </a>
           </li>
+
+            <div class="dropdown-divider"></div>
+            <li class="nav-item">
+                <a href="/logout" class="nav-link logout-btn">
+                    <i class="fas fa-sign-out-alt nav-icon" aria-hidden="true"></i>
+
+                    <p >Logout</p>
+                </a>
+            </li>
 
 {{--          <li class="nav-item menu-open">--}}
 {{--            <a href="#" class="nav-link">--}}
