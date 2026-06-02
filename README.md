@@ -1,66 +1,236 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CMS Gaming Product
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive Content Management System (CMS) designed for gaming products, built with modern web technologies.
 
-## About Laravel
+## 📋 Project Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project is a full-featured CMS platform tailored for managing gaming products, including video games, gaming peripherals, and gaming accessories. It provides an intuitive admin interface for managing product catalogs, user sessions, and dynamic content through a customizable menu bar system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Technology | Usage |
+|------------|-------|
+| **JavaScript** | 87.7% - Core application logic and interactivity |
+| **CSS** | 9.4% - Styling and layout |
+| **SCSS** | 1.6% - Advanced styling with variables and mixins |
+| **Other** | 1.3% - Configuration and misc files |
 
-## Learning Laravel
+## 📦 Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Product Management** - Manage gaming products including video games, remotes, and accessories
+- **User Authentication** - Secure login system with password reset functionality
+- **Session Management** - Track user sessions with IP and user agent logging
+- **Dynamic Menu System** - Customizable navigation with support for multiple menu items and branding
+- **Content Caching** - High-performance caching system with cache locks
+- **Job Queue System** - Background job processing with batch support and failure tracking
+- **Admin Panel** - Comprehensive dashboard for content management
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📁 Database Schema
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Core Tables
 
-## Laravel Sponsors
+- **users** - User authentication and profile information
+- **sessions** - User session tracking and management
+- **password_reset_tokens** - Password reset token storage
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Product Management
 
-### Premium Partners
+- **tblmenubar** - Navigation menu and homepage content management
+  - Multiple product sections with titles, descriptions, and images
+  - Button customization for each section
+  - Logo and branding assets
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### System Tables
 
-## Contributing
+- **cache** - Cache storage with expiration
+- **cache_locks** - Cache lock management for concurrency control
+- **jobs** - Job queue for background processing
+- **job_batches** - Batch job tracking and management
+- **failed_jobs** - Failed job logging and error tracking
+- **migrations** - Database migration history
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Getting Started
 
-## Code of Conduct
+### Prerequisites
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- PHP 8.0 or higher
+- MySQL 10.4.32 or higher
+- Node.js (for JavaScript dependencies)
+- Composer (PHP package manager)
 
-## Security Vulnerabilities
+### Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/theinvinciblebe/CMS-Gaming-Product.git
+   cd CMS-Gaming-Product
+   ```
 
-## License
+2. **Install dependencies**
+   ```bash
+   composer install
+   npm install
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Database Configuration**
+   - Update `.env` with your database credentials
+   - Run migrations:
+     ```bash
+     php artisan migrate
+     ```
+
+5. **Start Development Server**
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+## 📊 Database Setup
+
+The project includes pre-configured database tables ready for Laravel migrations. To set up the database:
+
+```bash
+# Run all migrations
+php artisan migrate
+
+# Seed the database (if seeders are available)
+php artisan db:seed
+```
+
+## 🔧 Configuration
+
+### Menu Bar Configuration
+
+The `tblmenubar` table allows configuration of:
+- Navigation menu items (up to 8 items)
+- Product sliders with images and descriptions
+- Button labels and CTAs
+- Logo and branding assets
+
+Example menu structure:
+- HOME
+- ABOUT
+- OUR PRODUCTS
+- VIDEO GAMES
+- REMOTE CONTROL
+- CONTACT US
+- SIGN IN
+- REGISTER
+
+### Admin Credentials
+
+Default admin user:
+- **Email**: admin
+- **Password**: (configured during setup)
+
+## 📝 API Endpoints
+
+Key endpoints for content management:
+
+- `GET /admin` - Admin dashboard
+- `POST /menubar-edit` - Update menu bar content
+- `GET /menubar-edit/{id}` - View menu bar content
+
+## 🔐 Security Features
+
+- Password hashing with bcrypt
+- Email verification support
+- Session management with IP tracking
+- CSRF protection
+- Secure password reset tokens
+
+## 📦 Caching System
+
+- Multi-level caching with expiration
+- Distributed cache locks for concurrency
+- Cache invalidation on content updates
+
+## 🎮 Product Categories
+
+The CMS supports management of:
+- Video Games (PlayStation, Xbox, etc.)
+- Gaming Accessories
+- Remote Controls
+- Gaming Peripherals
+- Featured Products
+
+## 🔄 Job Queue System
+
+- Background job processing
+- Batch job support
+- Failed job tracking and logging
+- Retry mechanisms
+- Job status monitoring
+
+## 📄 File Structure
+
+```
+CMS-Gaming-Product/
+├── app/                      # Application logic
+├── database/
+│   ├── migrations/          # Database migrations
+│   └── seeders/             # Database seeders
+├── resources/
+│   ├── views/               # Blade templates
+│   ├── css/                 # Stylesheets
+│   └── js/                  # JavaScript files
+├── routes/                  # API and web routes
+├── public/                  # Public assets
+├── config/                  # Configuration files
+└── storage/                 # Uploads and logs
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Author
+
+**Theng Sothea**
+- GitHub: [@theinvinciblebe](https://github.com/theinvinciblebe)
+
+## 📞 Support
+
+For support, please open an issue on the GitHub repository.
+
+## 🗺️ Roadmap
+
+- [ ] Enhanced product filtering and search
+- [ ] User review and rating system
+- [ ] Advanced analytics dashboard
+- [ ] Email notification system
+- [ ] Mobile app integration
+- [ ] Multi-language support
+- [ ] Payment gateway integration
+- [ ] Inventory management
+
+## 🐛 Known Issues
+
+- None currently reported
+
+## 📈 Performance
+
+- Optimized database queries with proper indexing
+- Caching enabled for frequently accessed data
+- Lazy loading for product images
+- Minified assets for faster load times
+
+---
+
+**Last Updated**: June 2, 2026
+
+For more information, visit the [GitHub repository](https://github.com/theinvinciblebe/CMS-Gaming-Product).
