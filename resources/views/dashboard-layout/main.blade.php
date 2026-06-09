@@ -1,17 +1,24 @@
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    <style>
+        .sidebar{
+            overflow-y: hidden;
+        }
+    </style>
 </head>
-<body class="hold-transition sidebar-mini">
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -24,9 +31,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/" class="nav-link">Home</a>
       </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="/logout" class="nav-link">Logout</a>
-        </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -155,10 +159,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 1000px">>
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+{{--    <a href="#" class="brand-link">--}}
+{{--      <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">--}}
+{{--      <span class="brand-text font-weight-light">AdminLTE 3</span>--}}
+{{--    </a>--}}
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -198,7 +202,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashbord
-                <span class="right badge badge-danger">New</span>
+{{--                <span class="right badge badge-danger">New</span>--}}
               </p>
             </a>
           </li>
@@ -208,11 +212,9 @@
               <i class="nav-icon fas fa-users"></i>
               <p>
                 User Management
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
-
             <div class="dropdown-divider"></div>
             <li class="nav-item">
                 <a href="/logout" class="nav-link logout-btn">
@@ -221,78 +223,6 @@
                     <p >Logout</p>
                 </a>
             </li>
-
-{{--          <li class="nav-item menu-open">--}}
-{{--            <a href="#" class="nav-link">--}}
-{{--              <i class="nav-icon fas fa-book"></i>--}}
-{{--              <p>--}}
-
-{{--                Setting--}}
-
-{{--                <i class="right fas fa-angle-left"></i>--}}
-{{--                <span class="right badge badge-info">2</span>--}}
-{{--              </p>--}}
-{{--            </a>--}}
-{{--            <ul class="nav nav-treeview">--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-
-{{--                  <p>Subject</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Expense</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--            </ul>--}}
-{{--          </li>--}}
-{{--          <li class="nav-item menu-open">--}}
-{{--            <a href="#" class="nav-link">--}}
-{{--            <i class="nav-icon fas fa-user-graduate"></i>--}}
-{{--              <p>--}}
-{{--                Student--}}
-
-{{--                <i class="right fas fa-angle-left"></i>--}}
-{{--                <span class="right badge badge-info">6</span>--}}
-{{--              </p>--}}
-{{--            </a>--}}
-{{--            <ul class="nav nav-treeview">--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Student Pending</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Student Paid</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Student Active</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Student Finished</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--              <li class="nav-item">--}}
-{{--                <a href="#" class="nav-link">--}}
-{{--                  <i class="far fa-circle nav-icon"></i>--}}
-{{--                  <p>Student Certificate</p>--}}
-{{--                </a>--}}
-{{--              </li>--}}
-{{--            </ul>--}}
-{{--          </li>--}}
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -302,10 +232,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-      @yield('slideredit')
-      @yield('slideredit2')
-      @yield('slideredit3')
-      @yield('menuedit')
 
       @yield('content')
 
@@ -313,7 +239,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
       <!-- Include Global Toastr Notifications -->
-      @include('layout.toastr')
+      @include('dashboard-layout.toastr')
 
   </div>
   <!-- Control Sidebar -->
@@ -325,44 +251,8 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="/assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets/dist/js/adminlte.min.js"></script>
-<script type="text/javascript">
-    function previewFile() {
-        const preview = document.getElementById('imgshow');
-        const file = document.querySelector('input[type=file]').files[0];
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function () {
-            // convert image file to base64 string
-            preview.src = reader.result;
-        }, false);
-
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    }
-</script>
-</body>
-</html>
-
+@extends('dashboard-layout.foot')
 

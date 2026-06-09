@@ -1,22 +1,23 @@
-@extends('layout.main')
-@section('menuedit')
+@extends('dashboard-layout.main')
 
-<section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-12">
-                <div class="col-sm-12">
-                    <h1>Navbar Items</h1>
+@section('content')
+    <div>
+        <!-- Edit NavItem -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-12">
+                    <div class="col-sm-12">
+                        <h1>Navbar Items</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-</section>
-        <!-- Edit NavItem -->
+        </section>
         <div class="card">
             <!-- /.card-header -->
             <div class="card-body">
                 <table class="table table-bordered" align="center">
                     <thead>
-                    <tr align="center" style="background-color:  Skyblue;" style="color: Black;">
+                    <tr align="center" style="  background-color:  Skyblue;" style="color: Black;">
                         <th>Navbar Logo</th>
 
                         <th>NavItem 1</th>
@@ -35,49 +36,52 @@
                     <tbody>
 
                     @foreach($tbl as $item)
-                    <tr align="center">
-                        <td><img src="/image/{{$item->logo}}" height="70" width="150" /></td>
+                        <tr align="center">
+                            <td><img src="/image/{{$item->logo}}" height="70" width="150" /></td>
 
-                        <td>{{$item->nav1}}</td>
-                        <td>{{$item->nav2}}</td>
-                        <td>{{$item->nav3}}</td>
-                        <td>{{$item->nav4}}</td>
-                        <td>{{$item->nav5}}</td>
-                        <td>{{$item->nav6}}</td>
-                        <td>{{$item->nav7}}</td>
-                        <td>{{$item->nav8}}</td>
+                            <td>{{$item->nav1}}</td>
+                            <td>{{$item->nav2}}</td>
+                            <td>{{$item->nav3}}</td>
+                            <td>{{$item->nav4}}</td>
+                            <td>{{$item->nav5}}</td>
+                            <td>{{$item->nav6}}</td>
+                            <td>{{$item->nav7}}</td>
+                            <td>{{$item->nav8}}</td>
 
 
-                        <td>
-                        <div class="dropdown">
-                        <a class="btn btn-primary"
-                           href="/menubar-edit/{{ $item->navid }}"
-                                style="width: 120px;">
-                                <i class="fa fa-edit" style="font-size:20px;color:white; pointer:cursor:pointer"></i>
-                                Edit
-                        </a>
-                        </div>
-                        </td>
-                    </tr>
+                            <td>
+                                <div class="dropdown">
+                                    <a class="btn btn-primary"
+                                       href="/menubar-edit/{{ $item->navid }}"
+                                       style="width: 120px;">
+                                        <i class="fa fa-edit" style="font-size:20px;color:white; pointer:cursor:pointer"></i>
+                                        Edit
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                     @endforeach
-                        </tbody>
+                    </tbody>
                 </table>
 
             </div>
             <!-- /.card-body -->
 
         </div>
-
-        <!-- Edit Slider -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-12">
-            <div class="col-sm-12">
-                <h1>Slider Items</h1>
-            </div>
-        </div>
     </div>
-</section>
+
+    <div>
+        <!-- Edit Slider -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-12">
+                    <div class="col-sm-12">
+                        <h1>Slider Items</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="card">
             <!-- /.card-header -->
             <div class="card-body">
@@ -220,10 +224,5 @@
 
         </div>
         <!-- /.card -->
-
-
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 @endsection

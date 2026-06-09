@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function someMethod() {
         $tbl = DB::select('select * from tblmenubar;');
-        return view("home",['tbl'=>$tbl,'i'=>1]);
+        return view("gaming-layout.home",['tbl'=>$tbl,'i'=>1]);
     }
 
 

@@ -1,4 +1,4 @@
-@extends('layout.header')
+@extends('gaming-layout.header')
 <body>
 	<!-- header section start -->
 	<div class="header_section">
@@ -257,4 +257,4 @@
           </div>
         </div>
       </div>
-@extends('layout.footer')
+@extends('gaming-layout.footer')

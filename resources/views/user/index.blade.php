@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('dashboard-layout.main')
 
 @section('content')
     <div class="card">
@@ -47,7 +47,7 @@
                                     <form action="{{ route('user.delete', $user->id) }}" method="POST" onsubmit="showOverlay()" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this user?');">
+                                        <button type="submit" class="dropdown-item text-danger delete-btn">
                                             <i class="fas fa-trash"></i> Delete
                                         </button>
                                     </form>

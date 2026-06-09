@@ -31,7 +31,7 @@ session_destroy();
 
     .bg-image {
         /*background-image: url('https://bootstrapious.com/i/snippets/sn-page-split/bg.jpg');*/
-        background-image: url('/Login-SVG.svg');
+        background-image: url("/Login-SVG.svg");
         background-size: cover;
         background-position: center center;
     }
@@ -62,6 +62,7 @@ session_destroy();
                                         autocomplete="off"
                                         id="name"
                                         type="text"
+                                        value="admin"
                                         placeholder="User Name"
                                         required=""
                                         autofocus=""
@@ -73,6 +74,7 @@ session_destroy();
                                         id="password"
                                         name="password"
                                         type="password"
+                                        value="123456"
                                         autocomplete="off"
                                         placeholder="Password"
                                         required=""
@@ -83,13 +85,6 @@ session_destroy();
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Log in</button>
                             </form>
                         </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <ul class="list-disc ml-6 text-sm text-gray-600">
-                            <li><strong>Username:</strong> admin</li>
-                            <li><strong>Password:</strong> 123456</li>
-                        </ul>
                     </div>
                 </div><!-- End -->
 

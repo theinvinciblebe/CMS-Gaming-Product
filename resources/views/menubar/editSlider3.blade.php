@@ -1,5 +1,6 @@
-@extends('layout.main')
-@section('slideredit3')
+@extends('dashboard-layout.main')
+
+@section('content')
 
     <section class="content-header">
         <div class="container-fluid">

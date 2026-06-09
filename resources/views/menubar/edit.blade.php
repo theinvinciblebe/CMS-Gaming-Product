@@ -1,5 +1,5 @@
-@extends('layout.main')
-@section('menuedit')
+@extends('dashboard-layout.main')
+@section('content')
 
     <section class="content-header">
         <div class="container-fluid">
