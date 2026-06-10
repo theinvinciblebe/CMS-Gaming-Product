@@ -44,10 +44,10 @@
 
                                     <div class="dropdown-divider"></div>
 
-                                    <form action="{{ route('user.delete', $user->id) }}" method="POST" onsubmit="showOverlay()" style="display: inline;">
+                                    <form action="{{ route('user.delete', $user->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="dropdown-item text-danger delete-btn">
+                                        <button type="button" class="dropdown-item text-danger delete-btn">
                                             <i class="fas fa-trash"></i> Delete
                                         </button>
                                     </form>

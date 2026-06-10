@@ -83,12 +83,16 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255'. $request->id,
+            'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $request->id,
             //'role' => 'required|integer',
         ]);
 
-        $user = User::findOrFail($request->id);
+        $user = User::find($request->id);
+
+        if (!$user) {
+            return back()->with('error', 'User not found.');
+        }
         $user->name = $request->name;
         $user->email = $request->email;
 

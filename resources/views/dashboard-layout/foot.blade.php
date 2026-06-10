@@ -33,6 +33,7 @@
 
 <!-- sweet alert script -->
 <script>
+
     $(document).ready(function(){
         $(document).on('click', '.delete-btn', function (e) {
             e.preventDefault();
@@ -128,85 +129,6 @@
     });
 </script>
 
-<!-- Overlay script -->
-<script>
-    function showOverlay() {
-        let overlay = document.getElementById("div");
-
-        // Check if the element exists, if not, create it
-        if (!overlay) {
-            overlay = document.createElement("div");
-            overlay.id = "div";
-            document.body.appendChild(overlay);
-        }
-
-        overlay.className = "overlay";
-        overlay.innerHTML = `
-        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-        <div class="text-bold pt-2">Loading...</div>
-    `;
-        document.body.appendChild(overlay);
-    }
-
-    // Listen for the "pageshow" event to handle back/forward navigation
-    window.addEventListener('pageshow', (event) => {
-        // Check if the page is being restored from the cache
-        if (event.persisted) {
-            // Remove the overlay if it exists
-            const overlay = document.querySelector('.overlay');
-            if (overlay) {
-                document.body.removeChild(overlay);
-            }
-        }
-    });
-</script>
-
-<!-- Overlay script -->
-<script>
-    function showOverlay() {
-        const overlay = document.createElement("div");
-        overlay.className = "overlay";
-        overlay.innerHTML = `
-        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-        <div class="text-bold pt-2">Loading...</div>
-    `;
-        document.body.appendChild(overlay);
-    }
-
-    // Listen for the "pageshow" event to handle back/forward navigation
-    window.addEventListener('pageshow', (event) => {
-        // Check if the page is being restored from the cache
-        if (event.persisted) {
-            // Remove the overlay if it exists
-            const overlay = document.querySelector('.overlay');
-            if (overlay) {
-                document.body.removeChild(overlay);
-            }
-        }
-    });
-
-
-    function showOverlay() {
-        document.getElementById('systemOverlay').style.display = 'flex';
-    }
-
-    function hideOverlay() {
-        document.getElementById('systemOverlay').style.display = 'none';
-    }
-
-    // Show overlay on form submit
-    document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', function () {
-            showOverlay();
-        });
-    });
-
-    // Hide overlay when page finishes loading
-    window.onload = function () {
-        hideOverlay();
-    };
-
-</script>
 
 <script type="text/javascript">
     function previewFile() {
