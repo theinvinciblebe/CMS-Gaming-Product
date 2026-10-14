@@ -22,6 +22,55 @@ class HomeController extends Controller
         return view("gaming-layout.home",['tbl'=>$tbl,'i'=>1]);
     }
 
+    public function processCheckout(Request $request) {
+        $orderId = 'GM-' . strtoupper(\Illuminate\Support\Str::random(6));
+
+        $items = $request->input('items', []);
+        $subtotal = (float) $request->input('subtotal', 0);
+        $discount = (float) $request->input('discount', 0);
+        $shipping = (float) $request->input('shipping_fee', 0);
+        $total = (float) $request->input('total', 0);
+
+        // Calculate fallback totals if not provided explicitly
+        if ($total <= 0 && !empty($items)) {
+            $subtotal = 0;
+            foreach ($items as $item) {
+                $subtotal += ($item['price'] ?? 0) * ($item['qty'] ?? 1);
+            }
+            $shipping = $subtotal >= 99 ? 0.00 : 9.99;
+            $total = max(0, $subtotal - $discount + $shipping);
+        }
+
+        $saleOrder = \App\Models\SaleOrder::create([
+            'order_id' => $orderId,
+            'customer_name' => $request->input('name', 'Gamer Customer'),
+            'customer_email' => $request->input('email', 'customer@example.com'),
+            'customer_phone' => $request->input('phone', null),
+            'shipping_address' => $request->input('address', 'Online Order'),
+            'city' => $request->input('city', null),
+            'postal_code' => $request->input('postal_code', null),
+            'payment_method' => $request->input('payment_method', 'Credit Card'),
+            'payment_status' => 'Paid',
+            'order_status' => 'Processing',
+            'subtotal' => $subtotal,
+            'discount' => $discount,
+            'shipping_fee' => $shipping,
+            'total_amount' => $total,
+            'promo_code' => $request->input('promo_code', null),
+            'items_json' => $items,
+            'notes' => $request->input('notes', 'Web checkout order placed via storefront.')
+        ]);
+
+        session()->push('orders', $saleOrder->toArray());
+
+        return response()->json([
+            'status' => 'success',
+            'order_id' => $orderId,
+            'order' => $saleOrder,
+            'message' => 'Order placed and recorded successfully!'
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

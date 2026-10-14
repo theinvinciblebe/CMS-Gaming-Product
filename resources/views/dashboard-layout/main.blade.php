@@ -11,199 +11,98 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
-      </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+
+
+
+      <!-- Tailwind-style Light / Dark Mode Toggle Button -->
+      <li class="nav-item d-flex align-items-center mx-2">
+        <button id="cmsThemeToggle" type="button" class="tailwind-theme-toggle" onclick="toggleCmsTheme()" aria-label="Toggle Light and Dark Mode" title="Toggle Light / Dark mode">
+          <span class="toggle-track">
+            <span class="toggle-thumb">
+              <i class="fas fa-sun icon-sun"></i>
+              <i class="fas fa-moon icon-moon"></i>
+            </span>
+          </span>
+          <span class="toggle-label d-none d-sm-inline" id="cmsThemeText">Dark</span>
+        </button>
       </li>
 
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="/assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="/assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="/assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 1000px">>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-{{--    <a href="#" class="brand-link">--}}
-{{--      <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">--}}
-{{--      <span class="brand-text font-weight-light">AdminLTE 3</span>--}}
-{{--    </a>--}}
+    <a href="/dashboard" class="brand-link d-flex align-items-center px-3" style="border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.25); text-decoration: none;">
+      <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(99,102,241,0.45); margin-right: 12px; flex-shrink: 0;">
+        <i class="fas fa-gamepad" style="color: white; font-size: 17px;"></i>
+      </div>
+      <div>
+        <span class="brand-text font-weight-bold" style="color: #ffffff; font-size: 15px; letter-spacing: 0.5px; display: block; line-height: 1.2;">GAMING CMS V2</span>
+        <span style="font-size: 10px; color: #818cf8; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600;">Control Studio</span>
+      </div>
+    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center" style="border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.5rem 0.8rem; background: rgba(255,255,255,0.02); border-radius: 12px;">
         <div class="image">
-          <img src="/assets/images/thea007.jpg" class="img-circle elevation-2" alt="User Image">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #3b82f6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px; box-shadow: 0 0 12px rgba(6,182,212,0.3);">
+            {{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 1)) }}
+          </div>
         </div>
-          <div class="info">
-              <a href="{{ route('user.profile') }}" class="d-block">
-                  @if (Auth::check())
-                      <p>Welcome, {{ Auth::user()->name }}!</p>
-                  @endif
-              </a>
-          </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+        <div class="info pl-3" style="line-height: 1.2;">
+          <a href="{{ route('user.profile') }}" class="d-block" style="color: #e2e8f0; font-weight: 600; font-size: 13px; text-decoration: none;">
+            <span style="background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{{ Auth::user()->name ?? 'Administrator' }}</span>
+          </a>
+          <span style="font-size: 11px; color: #10b981; display: inline-flex; align-items: center; gap: 4px; margin-top: 2px;">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block;"></span> Active Admin
+          </span>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-           <li class="nav-item ">
+           <li class="nav-item">
             <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Dashbord
-{{--                <span class="right badge badge-danger">New</span>--}}
-              </p>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
             </a>
           </li>
 
            <li class="nav-item">
             <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('user-management*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                User Management
-              </p>
+              <i class="nav-icon fas fa-users-cog"></i>
+              <p>User Management</p>
             </a>
           </li>
-            <div class="dropdown-divider"></div>
-            <li class="nav-item">
-                <a href="/logout" class="nav-link logout-btn">
-                    <i class="fas fa-sign-out-alt nav-icon" aria-hidden="true"></i>
 
-                    <p >Logout</p>
+           <li class="nav-item">
+            <a href="{{ route('sales.index') }}" class="nav-link {{ Request::is('sales-management*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>Sales History <span class="badge badge-success right" style="background: linear-gradient(135deg, #10b981, #059669); font-weight: 700;">Orders</span></p>
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a href="/" target="_blank" class="nav-link">
+              <i class="nav-icon fas fa-external-link-alt"></i>
+              <p>Live Website <span class="badge badge-info right">Visit</span></p>
+            </a>
+          </li>
+
+            <div class="dropdown-divider" style="border-top-color: rgba(255,255,255,0.06); margin: 12px 8px;"></div>
+            <li class="nav-item">
+                <a href="/logout" class="nav-link logout-btn" style="color: #f87171 !important;">
+                    <i class="fas fa-sign-out-alt nav-icon" aria-hidden="true"></i>
+                    <p>Logout</p>
                 </a>
             </li>
         </ul>
@@ -225,17 +124,8 @@
       @include('dashboard-layout.toastr')
 
   </div>
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
-@extends('dashboard-layout.foot')
+@include('dashboard-layout.foot')
 

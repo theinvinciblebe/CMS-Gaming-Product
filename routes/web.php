@@ -5,11 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/', [HomeController::class, 'someMethod']);
+Route::post('/api/checkout', [HomeController::class, 'processCheckout'])->name('checkout.process');
 
 Route::middleware('auth')->group(function () {
     //protect rout block
@@ -36,7 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/user-management/update', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user-management/delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
 
-
+    // Sales History Management
+    Route::get('/sales-management', [\App\Http\Controllers\SaleController::class, 'index'])->name('sales.index');
+    Route::get('/sales-management/export-csv', [\App\Http\Controllers\SaleController::class, 'exportCsv'])->name('sales.export');
+    Route::get('/sales-management/{id}', [\App\Http\Controllers\SaleController::class, 'show'])->name('sales.show');
+    Route::post('/sales-management/update-status/{id}', [\App\Http\Controllers\SaleController::class, 'updateStatus'])->name('sales.updateStatus');
+    Route::delete('/sales-management/delete/{id}', [\App\Http\Controllers\SaleController::class, 'destroy'])->name('sales.delete');
 });
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');

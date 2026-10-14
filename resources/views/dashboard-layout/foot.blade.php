@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 
 
 <!-- DataTable script -->
@@ -145,6 +145,46 @@
             reader.readAsDataURL(file);
         }
     }
+</script>
+
+<!-- Tailwind-style Light / Dark Mode Toggle Logic -->
+<script type="text/javascript">
+    function updateThemeUI(theme) {
+        const textLabel = document.getElementById('cmsThemeText');
+        if (textLabel) {
+            textLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        }
+    }
+
+    function toggleCmsTheme() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        const theme = isDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        try {
+            localStorage.setItem('cms_theme', theme);
+        } catch (e) {}
+        updateThemeUI(theme);
+    }
+
+    // Initialize UI on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        updateThemeUI(currentTheme);
+    });
+
+    // Cross-tab synchronization
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'cms_theme' && e.newValue) {
+            if (e.newValue === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+            updateThemeUI(e.newValue);
+        }
+    });
 </script>
 </body>
 </html>

@@ -74,7 +74,7 @@ session_destroy();
                                         id="password"
                                         name="password"
                                         type="password"
-                                        value="123456"
+                                        value="123"
                                         autocomplete="off"
                                         placeholder="Password"
                                         required=""
