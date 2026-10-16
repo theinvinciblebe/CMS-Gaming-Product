@@ -11,14 +11,40 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
+    private function normalizeTbl($tbl)
+    {
+        return array_map(function ($row) {
+            $map = [
+                'whitetitle' => 'whiteTitle',
+                'bluetitle' => 'blueTitle',
+                'sliderimage' => 'sliderImage',
+                'btntitle' => 'btnTitle',
+                'whitetitle2' => 'whiteTitle2',
+                'bluetitle2' => 'blueTitle2',
+                'sliderimage2' => 'sliderImage2',
+                'btntitle2' => 'btnTitle2',
+                'whitetitle3' => 'whiteTitle3',
+                'bluetitle3' => 'blueTitle3',
+                'sliderimage3' => 'sliderImage3',
+                'btntitle3' => 'btnTitle3',
+            ];
+            foreach ($map as $lower => $camel) {
+                if (isset($row->{$lower}) && !isset($row->{$camel})) {
+                    $row->{$camel} = $row->{$lower};
+                }
+            }
+            return $row;
+        }, $tbl);
+    }
+
     public function index()
     {
-        $tbl = DB::select('select * from tblmenubar;');
+        $tbl = $this->normalizeTbl(DB::select('select * from tblmenubar;'));
         return view("menubar.index",['tbl'=>$tbl,'i'=>1]);
     }
 
     public function someMethod() {
-        $tbl = DB::select('select * from tblmenubar;');
+        $tbl = $this->normalizeTbl(DB::select('select * from tblmenubar;'));
         return view("gaming-layout.home",['tbl'=>$tbl,'i'=>1]);
     }
 
