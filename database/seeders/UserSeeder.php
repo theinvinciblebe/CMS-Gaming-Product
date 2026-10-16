@@ -22,6 +22,23 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
             ]
         );
+
+        User::updateOrCreate(
+            ['name' => 'sarah.chen'],
+            [
+                'email' => 'sarah.chen@mail.com',
+                'password' => Hash::make('123'),
+                'email_verified_at' => now(),
+            ]
+        );
+        User::updateOrCreate(
+            ['name' => 'alex.rivera'],
+            [
+                'email' => 'alex.rivera@mail.com',
+                'password' => Hash::make('123'),
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }
 
