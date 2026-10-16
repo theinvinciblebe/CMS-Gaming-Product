@@ -28,5 +28,10 @@ if (getenv('DB_CONNECTION') === 'sqlite' || !getenv('DB_CONNECTION')) {
     }
 }
 
+// Ensure HTTPS is detected in Vercel serverless environment
+if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') || isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL'])) {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 // Forward Vercel serverless requests to Laravel's public entry point
 require __DIR__ . '/../public/index.php';
