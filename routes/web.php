@@ -4,6 +4,19 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/run-seeder/{secret}', function ($secret) {
+    // Protect with a secret key
+    if ($secret !== 'my-secret-key-123') {
+        abort(403, 'Unauthorized');
+    }
+    // Execute the seeder with --force
+    Artisan::call('db:seed', [
+        '--force' => true,
+    ]);
+    return '<pre>' . Artisan::output() . '</pre>';
+});
 
 Route::get('/', [HomeController::class, 'someMethod']);
 Route::post('/api/checkout', [HomeController::class, 'processCheckout'])->name('checkout.process');
