@@ -34,7 +34,13 @@ class LoginController extends Controller
                 ->withInput();
         }
 
-        $credentials = $request->only('name', 'password');
+        $login = $request->input('name');
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+
+        $credentials = [
+            $field => $login,
+            'password' => $request->input('password'),
+        ];
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
